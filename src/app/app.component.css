@@ -1,0 +1,19 @@
+
+/* Стилі для навігації */
+nav {
+  margin: 20px auto;
+  text-align: center;
+}
+
+nav a {
+  text-decoration: none; /* Видалення підкреслення для посилань */
+  color: #333; /* Колір тексту */
+  margin-right: 20px; /* Відступ між посиланнями */
+  font-weight: bold; /* Напівжирний шрифт */
+}
+
+nav a:hover {
+  color: #666; /* Колір тексту при наведенні */
+}
+
+
