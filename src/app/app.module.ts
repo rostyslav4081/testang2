@@ -10,10 +10,16 @@ import { MessagesComponent } from './messages/messages.component';
 import {InMemoryDataService} from "./in-memory-data.service";
 import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
 import {RouterLink} from "@angular/router";
-import {CustomerService} from "./services/customer.service";
-import {OrderService} from "./services/order.service";
+
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+
+
+
+import { CreateEditCustomerComponent } from './create-edit-customer/create-edit-customer.component';
+
+
+
 
 
 @NgModule({
@@ -22,6 +28,12 @@ import {FormsModule} from "@angular/forms";
     CustomersComponent,
     OrdersComponent,
     MessagesComponent,
+
+    CreateEditCustomerComponent,
+
+
+
+
 
   ],
   imports: [
@@ -35,7 +47,7 @@ import {FormsModule} from "@angular/forms";
     FormsModule,
 
   ],
-
+  providers: [  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
