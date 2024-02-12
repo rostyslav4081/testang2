@@ -1,0 +1,23 @@
+<form (ngSubmit)="saveData()" >
+  <div class="p-field">
+    <label for="customer-first-name" class="form-lable">First Name: </label>
+    <input id="customer-first-name" class="form-control new-customer p-inputtext" type="text" required  [(ngModel)]="customer.firstName" #customerFirstName/>
+  </div>
+  <div class="p-field">
+    <label for="customer-last-name" class="form-lable">Last Name: </label>
+    <input id="customer-last-name" class="form-control new-customer p-inputtext" type="text" required  [(ngModel)]="customer.lastName" #customerLastName/>
+  </div>
+  <div class="p-field">
+    <label for="customer-email" class="form-lable">Email: </label>
+    <input id="customer-email" class="form-control new-customer p-inputtext" type="text" required  [(ngModel)]="customer.email" #customerEmail/>
+  </div>
+  <div class="p-field">
+    <label for="customer-phone" class="form-lable">Phone: </label>
+    <input id="customer-phone" class="form-control new-customer p-inputtext" type="number" required  [(ngModel)]="customer.phone"#customerPhone/>
+  </div>
+  <div class="text-center">
+      <button type="button" class="btn" (click)="cancel()">Cancel</button>
+    <button type="submit" class="btn" >Save</button>
+  </div>
+</form>
+

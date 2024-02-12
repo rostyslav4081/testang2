@@ -1,0 +1,89 @@
+<div class="surface-ground px-4 py-5 md:px-6 lg:px-8">
+  <select class="filter-dropdown" [(ngModel)]="selectedStatus">
+    <option value="">Všechno</option>
+    <option value="nová">Nová</option>
+    <option value="přijatá">Přijatá</option>
+    <option value="vyřízeno">Vyřízeno</option>
+  </select>
+  <div class="p-grid">
+    <div class="p-col-12 p-md-6 p-lg-4" *ngFor="let order of filteredOrders">
+      <div class="surface-card shadow-2 p-3 border-round">
+        <div class="flex justify-content-between mb-3">
+          <div>
+            <span class="block text-500 font-medium mb-3">Order {{ order.id }}</span>
+
+          </div>
+          <div class="flex align-items-center justify-content-center bg-blue-100 border-round" style="width:2.5rem;height:2.5rem">
+            <i class="pi pi-shopping-cart text-blue-500 text-xl"></i>
+            <button type="button" class="delete" title="Delete Order"
+                    (click)="delete(order)">x</button>
+          </div>
+        </div>
+        <div><label class="label">Number:</label>
+          <input class="text-500" [(ngModel)]="order.numberOrder" placeholder="{{order.numberOrder}}"
+                 pattern="[A-Z][a-z]{0,5}" #orderNumber></div>
+        <div><label class="label">Date:</label>
+          <input class="text-500" [(ngModel)]="order.dateOrder" placeholder="{{order.dateOrder}}"
+                 pattern="\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z" #orderDate></div>
+        <div><label class="label">Status:</label>
+          <input class="text-500" [(ngModel)]="order.status" placeholder="{{order.status}}" #orderStatus></div>
+        <div><label class="label">Value:</label>
+          <input class="text-500" [(ngModel)]="order.value" placeholder="{{order.value}}" pattern="[0-9]*" #orderValue></div>
+        <button type="button" class="p-button p-button-primary"
+                (click)="updateOrder(order.id,orderNumber.value,orderDate.value,orderValue.value,orderStatus.value,order.idCustomer )">
+          Edit Order
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="addOrderContainer">
+
+  <div class="addOrder">
+    <h2 class="text-2xl">Add Order</h2>
+    <div class="p-mx-auto p-my-4" style="max-width: 400px;">
+      <div class="p-field">
+        <label for="order-number-order">Number Order: </label>
+        <input id="order-number-order" class="new-order p-inputtext" #orderNumberOrder/>
+      </div>
+      <div class="p-field">
+        <label for="order-date-order">Date Order: </label>
+        <input id="order-date-order" class="new-order p-inputtext" #orderDateOrder/>
+      </div>
+      <div class="p-field">
+        <div id="search-component">
+          <label for="search-box">Customer Email</label>
+          <input #searchBox id="search-box" class="new-order p-inputtext" (input)="search(searchBox.value)" [value]="(selectedEmail | async) || ''" />
+
+          <ul class="search-result" [hidden]="!showResults">
+            <li *ngFor="let customer of customers$ | async" (click)="selectCustomer(customer.email); searchBox.value = customer.email; showResults = false;">
+              {{customer.email}}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="p-field">
+        <label for="order-value">Value: </label>
+        <input id="order-value" class="new-order p-inputnumber" #orderValue/>
+      </div>
+      <div class="p-field">
+        <label for="order-status">Status: </label>
+        <select id="order-status" class="new-order" #orderStatus>
+          <option value="nová">Nová</option>
+          <option value="přijatá">Přijatá</option>
+          <option value="vyřízeno">Vyřízeno</option>
+        </select>
+      </div>
+
+      <button type="button" class="p-button p-button-primary"
+              (click)="add(orderNumberOrder.value, orderDateOrder.value,searchBox.value,  +orderValue.value, orderStatus.value); orderNumberOrder.value=''; orderDateOrder.value='';searchBox.value='';  orderValue.value=''; orderStatus.value=''">
+        Add Order
+      </button>
+    </div>
+  </div>
+</div>
+

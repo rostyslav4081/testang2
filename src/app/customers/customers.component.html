@@ -1,0 +1,60 @@
+<button type="button"  title="ADD Customer"
+        (click)="createCustomer()">Add New Customer</button>
+<div class="wrapper" *ngIf="customers">
+  <div class="p-grid">
+    <div class="p-col-12 p-md-6 p-lg-4" *ngFor="let customer of customers">
+      <div class="p-card shadow-2 border-round">
+        <div class="p-card-header bg-f0f0f0 p-2 border-round-t">
+          <span class="text-500 font-medium">Customer {{ customer.id }}</span>
+          <button type="button" class="delete" title="Delete Customer"
+                  (click)="delete(customer)">x</button>
+        </div>
+        <div class="p-card-body p-2">
+          <label class="label">First Name:</label>
+          <div class="text-500">{{ customer.firstName }}</div>
+          <label class="label">Last Name:</label>
+          <div class="text-500">{{ customer.lastName }}</div>
+          <label class="label">Email:</label>
+          <div class="text-500">{{ customer.email }}</div>
+          <label class="label">Phone:</label>
+          <div class="text-500">{{ customer.phone }}</div>
+        </div>
+        <div class="p-card-footer bg-f0f0f0 p-2 border-round-b">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h2 style="text-align: center;">Add Customer</h2>
+
+<div class="addCustomerContainer">
+  <div class="addCustomer">
+    <div class="p-mx-auto p-my-4" style="max-width: 400px;">
+      <div class="p-field">
+        <label for="customer-first-name">First Name: </label>
+        <input id="customer-first-name" class="new-customer p-inputtext" #customerFirstName/>
+      </div>
+      <div class="p-field">
+        <label for="customer-last-name">Last Name: </label>
+        <input id="customer-last-name" class="new-customer p-inputtext" #customerLastName/>
+      </div>
+      <div class="p-field">
+        <label for="customer-email">Email: </label>
+        <input id="customer-email" class="new-customer p-inputemail" #customerEmail/>
+      </div>
+      <div class="p-field">
+        <label for="customer-phone">Phone: </label>
+        <input id="customer-phone" class="new-customer p-inputtext" #customerPhone/>
+      </div>
+
+      <button type="button" class="p-button p-button-primary"
+              (click)="add(customerFirstName.value, customerLastName.value, customerEmail.value, customerPhone.value); customerFirstName.value=''; customerLastName.value=''; customerEmail.value=''; customerPhone.value=''">
+        Add Customer
+      </button>
+    </div>
+  </div>
+</div>
+
+
+

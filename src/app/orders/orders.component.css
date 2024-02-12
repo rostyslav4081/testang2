@@ -1,0 +1,57 @@
+.surface-ground {
+  padding: 1rem; /* Додати відступи до країв контейнера */
+}
+
+.p-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивна сітка замовлень */
+  gap: 1rem; /* Проміжок між карточками */
+}
+
+.p-col-12 {
+  width: 100%;
+}
+
+.p-card {
+  background-color: #ffffff; /* Колір фону карточки */
+  border-radius: 10px; /* Закруглені кути */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тінь */
+}
+
+.surface-card {
+  padding: 1.5rem; /* Внутрішні відступи карточки */
+}
+
+.label {
+  font-weight: bold; /* Напівжирний шрифт для лейблів */
+  margin-bottom: 0.5rem; /* Відступ між лейблом та наступним елементом */
+}
+
+
+
+.addOrderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Розмір екрану */
+}
+
+.addOrder {
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Додаткові стилі за потреби */
+.new-order {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 5px;
+}
+
+.p-button {
+  width: 100%;
+  padding: 0.5rem;
+}
+.addOrderContainer{
+  margin-top: 80px;
+}
